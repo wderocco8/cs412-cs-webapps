@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+    <link rel="stylesheet" href={% static "mini_fb/css/style.css" %}>
+    {% comment %} <link rel="stylesheet" href="static/mini_fb/css/style.css"> {% endcomment %}
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">(Mini) Facebook</div>
+      <ul class="nav-links">
+        <li><a href={% url "show_all_profiles" %}>All Profiles</a></li>
+        <li><a href={% url "create_profile" %}>Create Profile</a></li>
+        
+        {% if user.is_authenticated %}
+          <li>
+            <a href={% url "show_profile_page" profile.pk %}>
+              Welcome, {{ user.username }}!
+            </a>
+          </li>
+          <li>
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit">logout</button>
+            </form>
+          </li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <div class="container">
+      {% block content %} {% endblock content %}
+    </div>
+    <footer class="footer">
+      <p>&copy; 2024 Mini Facebook. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

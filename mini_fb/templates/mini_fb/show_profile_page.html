@@ -1,0 +1,79 @@
+{% extends "mini_fb/base.html" %}
+
+{% block content %}
+
+<div class="profile-container">
+
+  <img class="profile-image" src={{ profile.profile_image_url }} alt="pic of {{ profile.firstname }}">
+  
+  <h1>{{ profile.firstname }} {{ profile.lastname }}</h1>
+
+  {% if user.is_authenticated and user == profile.user %}
+    <a href={% url "news_feed" %}>News Feed</a>
+    <a href="{% url 'update_profile' %}">Update Profile</a>
+    <a href="{% url 'create_status' %}">Create a Status Message</a>
+  {% endif %}
+
+  <br>
+  <br>
+
+  {% for status_msg in profile.get_status_messages %}
+    <div>
+      
+      {% if user.is_authenticated and user == profile.user %}
+        <a href="{% url 'delete_status' status_msg.pk %}">Delete Message</a>
+        <a href="{% url 'update_status' status_msg.pk %}">Update Message</a>
+      {% endif %}
+
+      <strong>{{ status_msg.timestamp }}:</strong>
+      {{ status_msg.message }}
+
+      <br>
+      {% for img in status_msg.get_images %}
+        <img class="status-image" src='{{img.image_file.url}}' alt='{{img.image_file.url}}'>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <h2>Friends</h2>
+
+  {% if user.is_authenticated and user == profile.user %}
+    <a href={% url "friend_suggestions" %}>Find friends</a>
+  {% endif %}
+  
+  {% if profile.get_friends %}
+    <table class="profile-table">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>Profile Pic</th>
+      </tr>
+      {% for profile in profile.get_friends %}
+        <tr data-href={% url "show_profile_page" profile.pk %}>
+          <td>{{ profile.firstname }}</td>
+          <td>{{ profile.lastname }}</td>
+          <td>{{ profile.city }}</td>
+          <td><img src={{ profile.profile_image_url }} alt="pic of {{ profile.firstname }}"></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <h3>No friends yet 🥲</h3>
+  {% endif %}
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll("tr[data-href]");
+    
+    rows.forEach(row => {
+      row.addEventListener("click", function() {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>
+
+{% endblock content %}

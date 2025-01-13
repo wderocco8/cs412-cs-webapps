@@ -1,0 +1,34 @@
+{% extends "mini_fb/base.html" %}
+
+{% block content %}
+
+<table class="profile-table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>Profile Pic</th>
+  </tr>
+  {% for profile in profiles %}
+    <tr data-href={% url "show_profile_page" profile.pk %}>
+      <td>{{ profile.firstname }}</td>
+      <td>{{ profile.lastname }}</td>
+      <td>{{ profile.city }}</td>
+      <td><img src={{ profile.profile_image_url }} alt="pic of {{ profile.firstname }}"></td>
+    </tr>
+  {% endfor %}
+</table>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll(".profile-table tr[data-href]");
+    
+    rows.forEach(row => {
+      row.addEventListener("click", function() {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>
+
+{% endblock content %}

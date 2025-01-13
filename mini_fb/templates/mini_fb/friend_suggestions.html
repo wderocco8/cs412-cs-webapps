@@ -1,0 +1,42 @@
+{% extends "mini_fb/base.html" %}
+
+{% block content %}
+
+<h1>Friend Suggestions for {{ profile }}</h1>
+
+<a href={% url "show_profile_page" profile.pk %}>Go back</a>
+
+<table class="profile-table">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>Profile Pic</th>
+    <th></th>
+  </tr>
+  {% for p in profile.get_friend_suggestions %}
+    <tr data-href={% url "show_profile_page" p.pk %}>
+      <td>{{ p.firstname }}</td>
+      <td>{{ p.lastname }}</td>
+      <td>{{ p.city }}</td>
+      <td><img src={{ p.profile_image_url }} alt="pic of {{ p.firstname }}"></td>
+      <td>
+        <a href={% url "add_friend" p.pk %}>Add friend</a>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll(".profile-table tr[data-href]");
+    
+    rows.forEach(row => {
+      row.addEventListener("click", function() {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>
+
+{% endblock content %}
