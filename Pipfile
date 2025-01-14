@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 gunicorn = "*"
-whitenoise = "*"
 pillow = "*"
 plotly = "*"
+whitenoise = "*"
 
 [dev-packages]
 

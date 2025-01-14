@@ -22,7 +22,7 @@ env/
 db.sqlite3-journal
 
 # Static and media files
-staticfiles/
+# staticfiles/
 # static/               # For now: DO NOT IGNORE (needed for heroku deployment)
 # media/                # For now: DO NOT IGNORE (needed for heroku deployment)
 
