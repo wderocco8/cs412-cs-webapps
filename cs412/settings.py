@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import socket
+
+# Apache webserver hostname
+CS_DEPLOYMENT_HOSTNAME = 'cs-webapps.bu.edu'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,6 +127,9 @@ USE_TZ = True
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = "/static/"
+if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
+    STATIC_URL = '/wderocco/cs412/static/'
+    # in production, added link from staticfiles/admin to static/admin
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
