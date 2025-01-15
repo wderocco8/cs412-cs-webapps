@@ -128,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
-    STATIC_URL = '/wderocco/cs412/static/'
+    STATIC_URL = '/cs412/static/'
     # in production, added link from staticfiles/admin to static/admin
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
