@@ -126,7 +126,7 @@ USE_TZ = True
 # NEW: Used to deploy with static files:
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
     STATIC_URL = '/wderocco/cs412/static/'
     # in production, added link from staticfiles/admin to static/admin
