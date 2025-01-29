@@ -129,15 +129,14 @@ USE_TZ = True
 STATIC_URL = "static/"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
     STATIC_URL = '/wderocco/static/'
-    # STATIC_URL = '/wderocco/cs412/static/'
     # in production, added link from staticfiles/admin to static/admin
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # used to store images
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Default primary key field type
