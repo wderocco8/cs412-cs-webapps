@@ -28,7 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-fpbi8y$ho*&7l$@oqcbo+z+7z446ga@dn*!_e+t^2ykb^z0h9b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = socket.gethostname() != CS_DEPLOYMENT_HOSTNAME
+
 
 ALLOWED_HOSTS = ["127.0.0.1", "cs-webapps.bu.edu"]
 
