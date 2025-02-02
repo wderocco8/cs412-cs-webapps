@@ -25,6 +25,7 @@ db.sqlite3-journal
 # staticfiles/
 # static/               # For now: DO NOT IGNORE (needed for heroku deployment)
 # media/                # For now: DO NOT IGNORE (needed for heroku deployment)
+/static/admin/
 
 # Django cache files
 *.log
