@@ -3,7 +3,7 @@
 *.pyo
 __pycache__/
 
-# Virtual environment
+# Virtual environment (TODO: add other virtual environment names as needed -> not necessary if using `pipenv`)
 venv/
 env/
 .venv/
@@ -25,6 +25,8 @@ db.sqlite3-journal
 # staticfiles/
 # static/               # For now: DO NOT IGNORE (needed for heroku deployment)
 # media/                # For now: DO NOT IGNORE (needed for heroku deployment)
+
+# static/admin is created on the Apache-server when we create the sybmolic link (but is not necessary locally or on GitHub)
 /static/admin/
 
 # Django cache files
