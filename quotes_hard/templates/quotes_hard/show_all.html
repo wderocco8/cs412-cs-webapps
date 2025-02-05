@@ -1,0 +1,12 @@
+{% extends "quotes_hard/base.html" %} {% block content %}
+<h1>All Quotes</h1>
+
+<ul>
+  {% for quote, image in quote_image_pairs %}
+  <li>
+    {% include "quotes_hard/quote_component.html" with quote=quote image=image %}
+  </li>
+
+  {% endfor %}
+</ul>
+{% endblock content %}

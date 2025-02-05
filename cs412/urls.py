@@ -24,6 +24,7 @@ urlpatterns = (
     [
         path("admin/", admin.site.urls),
         path("mini_fb/", include("mini_fb.urls")),
+        path("qh/", include("quotes_hard.urls")),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

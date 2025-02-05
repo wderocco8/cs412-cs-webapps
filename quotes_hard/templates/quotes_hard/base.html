@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes</title>
+    <link rel="stylesheet" href={% static "quotes_hard/css/styles.css" %}>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Alex Honnold</div>
+      <ul class="nav-links">
+        <li><a href={% url "home_qh" %}>Home</a></li>
+        <li><a href={% url "quote_qh" %}>Random Quote</a></li>
+        <li><a href={% url "all_qh" %}>Show All</a></li>
+        <li><a href={% url "about_qh" %}>About</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      {% block content %} {% endblock content %}
+    </div>
+  </body>
+</html>
