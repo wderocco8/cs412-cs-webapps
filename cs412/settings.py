@@ -141,11 +141,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 STATIC_URL = "static/"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
-    # in production, added link from staticfiles/admin to static/admin
-    STATIC_URL = "/wderocco/static/"
     MEDIA_URL = "/wderocco/media/"
-    MEDIA_ROOT = os.path.join(BASE_DIR, "wderocco/media/")
-
+    STATIC_URL = "/wderocco/static/"
+    # in production, added link from staticfiles/admin to static/admin
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
