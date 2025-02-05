@@ -15,7 +15,7 @@ import os
 import socket
 
 # Apache webserver hostname
-CS_DEPLOYMENT_HOSTNAME = 'cs-webapps.bu.edu'
+CS_DEPLOYMENT_HOSTNAME = "cs-webapps.bu.edu"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,14 +44,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'hello_world.apps.HelloWorldConfig',
-    'pages.apps.PagesConfig',
-    'quotes.apps.QuotesConfig',
-    'quotes_hard.apps.QuotesHardConfig',
-    'restaurants.apps.RestaurantsConfig',
-    'mini_fb.apps.MiniFbConfig',
-    'marathon.apps.MarathonConfig',
-    'voter_analytics.apps.VoterAnalyticsConfig',
+    "hello_world.apps.HelloWorldConfig",
+    "pages.apps.PagesConfig",
+    "quotes.apps.QuotesConfig",
+    "quotes_hard.apps.QuotesHardConfig",
+    "restaurants.apps.RestaurantsConfig",
+    "mini_fb.apps.MiniFbConfig",
+    "marathon.apps.MarathonConfig",
+    "voter_analytics.apps.VoterAnalyticsConfig",
 ]
 
 MIDDLEWARE = [
@@ -135,17 +135,17 @@ USE_TZ = True
 # NEW: Used to deploy with static files:
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# used to store images
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
 STATIC_URL = "static/"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
-    STATIC_URL = '/wderocco/static/'
+    MEDIA_URL = "/wderocco/media/"
+    STATIC_URL = "/wderocco/static/"
     # in production, added link from staticfiles/admin to static/admin
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-
-# used to store images
-MEDIA_URL = "media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Default primary key field type
