@@ -1,0 +1,27 @@
+{% extends 'voter_analytics/base.html' %}
+{% block content %}
+<div class="container">
+  <h1>Graphs</h1>
+
+  <div>
+    {% include "voter_analytics/filter_graphs.html" %}
+  </div>
+
+  <!-- display the bar chart with dob year dist -->
+  <div class="row">
+    {{bar_div|safe}}
+  </div>
+
+  <!-- display the pie chart with party affil dist -->
+  <div class="row">
+    {{pie_div|safe}}
+  </div>
+
+  <!-- display the bar chart with election voter dist -->
+  <div class="row">
+    {{election_bar_div|safe}}
+  </div>
+
+</div>
+    
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+
+<h1>All quotes by {{person}}</h1>
+<ul>
+{% for quote in person.get_all_quotes %}
+  <li>"{{quote.text}}"</li>
+{% endfor %}
+</ul>
+
+<h2>All images of {{person}}</h2>
+<ul>
+{% for image in person.get_all_images %}
+  <li><img src={{image}}></li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

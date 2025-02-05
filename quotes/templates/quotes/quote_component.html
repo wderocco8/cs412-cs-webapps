@@ -1,0 +1,8 @@
+<img
+  src={{ image }}
+  alt="Alex Honnold being a beast"
+/>
+<h2><a href={% url "person" person.pk %}>{{ person }}</a></h2>
+{% comment %} <h2><a href={% url "person" person.id %}>{{ person }}</a></h2> {% endcomment %}
+
+<p>"{{ quote }}"</p>

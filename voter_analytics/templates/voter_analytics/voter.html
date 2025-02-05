@@ -1,0 +1,84 @@
+{% extends 'voter_analytics/base.html' %}
+{% block content %}
+<div class="container">
+  <div class="detail-header">
+    <h1>Voter Details</h1>
+    <a href="{% url 'voter_home' %}" class="back-link">← Back to Voters List</a>
+  </div>
+
+  <div class="detail-card">
+    <div class="detail-section personal-info">
+      <h2>Personal Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <label>First Name</label>
+          <span>{{ voter.first_name }}</span>
+        </div>
+        <div class="info-item">
+          <label>Last Name</label>
+          <span>{{ voter.last_name }}</span>
+        </div>
+        <div class="info-item">
+          <label>Date of Birth</label>
+          <span>{{ voter.dob|date:"F d, Y" }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section address-info">
+      <h2>Address</h2>
+      <div class="info-grid">
+        {% if voter.street_number and voter.street_name %}
+          <div class="info-item full-width">
+            <label>Street Address</label>
+            <span>
+              {{ voter.street_number }} {{ voter.street_name }}
+              {% if voter.apartment_number %}
+                , Apt {{ voter.apartment_number }}
+              {% endif %}
+            </span>
+          </div>
+          <div class="info-item">
+            <label>ZIP Code</label>
+            <span>{{ voter.zip_code }}</span>
+          </div>
+
+          <div class="info-item">
+            <label>Google Maps</label>
+            <span>
+              <a href="https://www.google.com/maps/?q={{ voter.street_number }} {{ voter.street_name }}{% if voter.apartment_number %} Apt {{ voter.apartment_number }}{% endif %} {{ voter.zip_code }}" 
+                target="_blank" 
+                class="maps-link">
+                Open in Google Maps
+              </a>
+            </span>
+          </div>
+          
+        {% else %}
+          <div class="info-item">
+            <span class="no-data">Address not available</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="detail-section voting-info">
+      <h2>Voting Information</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Party Affiliation</label>
+          <span class="party-badge party-{{ voter.party_affiliation|lower }}">
+            {{ voter.party_affiliation }}
+          </span>
+        </div>
+        <div class="info-item">
+          <div class="info-item">
+            <label>Voter Score</label>
+            <span>{{ voter.voter_score }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

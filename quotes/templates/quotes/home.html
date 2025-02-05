@@ -1,0 +1,12 @@
+{% extends "quotes/base.html" %} {% block content %}
+<h1>All Quotes</h1>
+
+<ul>
+  {% for quote in quotes %}
+  <li>
+    {% include "quotes/quote_component.html" with person=quote.person quote=quote.text image=quote.person.get_random_image %}
+  </li>
+
+  {% endfor %}
+</ul>
+{% endblock content %}

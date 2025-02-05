@@ -23,8 +23,14 @@ from django.conf import settings
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
-        path("mini_fb/", include("mini_fb.urls")),
+        path("pages/", include("pages.urls")),
+        path("hw/", include("hello_world.urls")),
         path("qh/", include("quotes_hard.urls")),
+        path("quotes", include("quotes.urls")),
+        path("restaurants/", include("restaurants.urls")),
+        path("marathon/", include("marathon.urls")),
+        path("mini_fb/", include("mini_fb.urls")),
+        path("", include("voter_analytics.urls")),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,10 @@
+{% extends 'restaurants/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Welcome to Our Restaurant</h1>
+  <p>Location: 123 Main St, Your City</p>
+  <p>Hours: Mon-Sun, 11:00 AM - 10:00 PM</p>
+
+  <img src={% static "restaurants/images/italian-restaurant.jpg" %} alt="Our restaurant">
+{% endblock %}

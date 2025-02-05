@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+  </head>
+  <body>
+    {% comment %} navbar {% endcomment %}
+    <header>
+      <a href={% url "home" %}>Home</a>
+      <a href={% url "about" %}>About</a>
+      <a href={% url "schedule" %}>Schedule</a>
+      
+    </header>
+    {% block content %}
+    
+    {% endblock content %}
+    
+    <hr>
+    This page was brought to you by wderocco@bu.edu.
+    
+  </body>
+</html>

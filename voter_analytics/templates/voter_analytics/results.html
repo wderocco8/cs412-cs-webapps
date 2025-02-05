@@ -1,0 +1,63 @@
+{% extends 'voter_analytics/base.html' %}
+{% block content %}
+<div class="container">
+  <h1>Voters</h1>
+
+  <div>
+    {% include "voter_analytics/filter.html" %}
+  </div>
+
+  <div class="row">
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Date of Birth</th>
+        <th>Party</th>
+        <th>Voter Score</th>
+      </tr>
+
+      {% for v in voters %}
+      <tr onclick="window.location='{% url 'voter' v.id %}'" class="clickable-row">
+        <td>{{v.first_name}}</td>
+        <td>{{v.last_name}}</td>
+        {% if v.street_number and v.street_name and v.apartment_number and v.zip_code %}
+          <td>{{v.street_number}} {{v.street_name}}, Apt {{v.apartment_number}}, {{v.zip_code}}</td>
+        {% elif v.street_number and v.street_name and v.zip_code %}
+          <td>{{v.street_number}} {{v.street_name}}, {{v.zip_code}}</td>
+        {% else %}
+        <td>n/a</td>
+        {% endif %}
+        <td>{{v.dob}}</td>
+        <td>{{v.party_affiliation}}</td>
+        <td>{{v.voter_score}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </div>
+
+  <div class="row">
+    {% if is_paginated %}
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li>
+          <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+        </li>
+      {% endif %}
+        <li class="">
+          <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+        </li>
+      {% if page_obj.has_next %}
+        <li>
+          <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+        </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+
+</div>
+    
+{% endblock %}

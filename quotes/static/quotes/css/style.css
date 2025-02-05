@@ -1,0 +1,78 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background-image: linear-gradient(to bottom, #99e2fe, #fddabe87);
+  background-size: cover;
+  background-repeat: no-repeat; /* Prevents repeating */
+  background-attachment: fixed; /* Ensures the background stays fixed */
+}
+
+.container {
+  max-width: 800px; /* Set a max width for your content */
+  margin: 0 auto; /* This centers the container horizontally */
+  padding: 20px; /* Optional padding */
+}
+
+p {
+  font-size: 20px;
+  line-height: 150%;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 20px;
+  line-height: 200%;
+  padding-left: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  border: 5px solid #fab974;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fab974;
+  padding: 10px 20px;
+  
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #9d6325;
+  color: white;
+}

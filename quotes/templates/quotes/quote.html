@@ -1,0 +1,7 @@
+{% extends "quotes/base.html" %}
+
+{% block content %} 
+
+{% include "quotes/quote_component.html" with person=quote.person quote=quote.text image=quote.person.get_random_image %}
+
+{% endblock content %}

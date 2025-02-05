@@ -44,8 +44,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "mini_fb.apps.MiniFbConfig",
+    'hello_world.apps.HelloWorldConfig',
+    'pages.apps.PagesConfig',
+    'quotes.apps.QuotesConfig',
     'quotes_hard.apps.QuotesHardConfig',
+    'restaurants.apps.RestaurantsConfig',
+    'mini_fb.apps.MiniFbConfig',
+    'marathon.apps.MarathonConfig',
+    'voter_analytics.apps.VoterAnalyticsConfig',
 ]
 
 MIDDLEWARE = [
