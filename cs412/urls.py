@@ -26,7 +26,7 @@ urlpatterns = (
         path("pages/", include("pages.urls")),
         path("hw/", include("hello_world.urls")),
         path("qh/", include("quotes_hard.urls")),
-        path("quotes", include("quotes.urls")),
+        path("quotes/", include("quotes.urls")),
         path("restaurants/", include("restaurants.urls")),
         path("marathon/", include("marathon.urls")),
         path("mini_fb/", include("mini_fb.urls")),
