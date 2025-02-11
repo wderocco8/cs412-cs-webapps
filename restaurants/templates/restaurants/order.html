@@ -14,6 +14,14 @@
 
     <h2>Menu</h2>
     <input type="checkbox" name="items" value="Pizza"> Pizza - $12.99<br>
+
+      {% comment %} <!-- Hidden input field for pizza options -->
+      <div id="pizza-options" style="display: none;">
+        <input type="checkbox" name="items" value="Pepperoni"> Pepperoni<br>
+        <input type="checkbox" name="items" value="Sausage"> Sausage<br>
+        <input type="checkbox" name="items" value="Pepper"> Pepper<br>
+      </div> {% endcomment %}
+
     <input type="checkbox" name="items" value="Pasta"> Pasta - $10.99<br>
     <input type="checkbox" name="items" value="Salad"> Salad - $8.99<br>
     <input type="checkbox" name="items" value="Special"> {{ daily_special }} - $14.99 (Daily Special)<br>
@@ -23,4 +31,14 @@
 
     <button type="submit">Submit Order</button>
   </form>
+{% comment %} 
+  <script>
+    document.get("Pizza").addEventListener("change", function() {
+      const pizzaOptions = document.getElementById("pizza-options");
+
+      console.log("this", this)
+
+      pizzaOptions.style.display = this.checked ? "block" : "none";
+    });
+  </script> {% endcomment %}
 {% endblock %}

@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect
 import random
 from datetime import datetime, timedelta
+from django.http import HttpRequest
 
 # Create your views here.
 
-def main(request):
+def main(request: HttpRequest):
     '''Show the main page.'''
 
     template_name = "restaurants/main.html"
     return render(request, template_name)
 
-def order(request):
+def order(request: HttpRequest):
     '''
     Handle the form submission.
     Read the form data from the request,
@@ -26,7 +27,7 @@ def order(request):
     return render(request, 'restaurants/order.html', {'daily_special': daily_special})
 
     
-def confirmation(request):
+def confirmation(request: HttpRequest):
     '''Show the confrimation page.'''
 
     # check that we have a POST request
