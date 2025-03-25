@@ -73,6 +73,8 @@ class CreateProfileView(ProfileContextMixin, CreateView):
             # login(self.request, user)
 
             return super().form_valid(form)  # Call the superclass' form_valid method
+        
+        return self.form_invalid(form)
 
 
 # NOTE: not sure why this works without ProfileContextMixin
