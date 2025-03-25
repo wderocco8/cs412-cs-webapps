@@ -62,6 +62,7 @@ class CreateProfileView(ProfileContextMixin, CreateView):
             
             # Attach the user to the Profile instance
             profile = form.save(commit=False)
+            profile = form.instance # *could* do this, but is not safe (doesn't perform validation before creating a new user)
             profile.user = user
             
             # Save the profile instance
