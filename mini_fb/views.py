@@ -16,7 +16,7 @@ class ProfileContextMixin:
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Get the user's profile if they are authenticated
-        context["profile"] = Profile.objects.filter(user=self.request.user).first() if self.request.user.is_authenticated else None
+        context["profile"] = Profile.objects.get(user=self.request.user) if self.request.user.is_authenticated else None
         return context
     
 

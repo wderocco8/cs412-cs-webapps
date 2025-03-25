@@ -20,7 +20,7 @@
         {% if user.is_authenticated %}
           <li>
             <a href={% url "show_profile_page" profile.pk %}>
-              Welcome, {{ user.username }}!
+              Welcome, {{ profile.firstname }}!
             </a>
           </li>
           <li>
