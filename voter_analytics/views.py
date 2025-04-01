@@ -115,12 +115,7 @@ def get_voter_party_affiliation(voters: list[Voter]) -> Tuple[List[int], List[in
     return (x, y)
 
 
-def update_voter_dict(d: dict, election: str):
-    if election in d:
-        d[election] += 1
-    else:
-        d[election] = 1
-    return
+
 
 def get_voter_election_distribution(voters: list[Voter]) -> Tuple[List[int], List[int]]:
     """
@@ -129,6 +124,13 @@ def get_voter_election_distribution(voters: list[Voter]) -> Tuple[List[int], Lis
     - y is the count of voters in that voted in the corresponding election
     """
     d = {}
+
+    def update_voter_dict(election: str):
+        if election in d:
+            d[election] += 1
+        else:
+            d[election] = 1
+        return
 
     for v in voters:
         v20state = v.v20state
@@ -139,19 +141,19 @@ def get_voter_election_distribution(voters: list[Voter]) -> Tuple[List[int], Lis
 
         if v20state:
             election = "v20state"
-            update_voter_dict(d, election)
+            update_voter_dict(election)
         if v21town:
             election = "v21town"
-            update_voter_dict(d, election)
+            update_voter_dict(election)
         if v21primary:
             election = "v21primary"
-            update_voter_dict(d, election)
+            update_voter_dict(election)
         if v22general:
             election = "v22general"
-            update_voter_dict(d, election)
+            update_voter_dict(election)
         if v23town:
             election = "v23town"
-            update_voter_dict(d, election)
+            update_voter_dict(election)
         
     x = sorted(d.keys())
     y = [d[election] for election in x]
