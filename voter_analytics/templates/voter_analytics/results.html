@@ -4,7 +4,9 @@
   <h1>Voters</h1>
 
   <div>
-    {% include "voter_analytics/filter.html" %}
+    <form action="{% url 'voter_home' %}" method="GET">
+      {% include "voter_analytics/filter.html" %}
+    </form>
   </div>
 
   <div class="row">

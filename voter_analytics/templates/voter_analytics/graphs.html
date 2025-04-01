@@ -4,7 +4,9 @@
   <h1>Graphs</h1>
 
   <div>
-    {% include "voter_analytics/filter_graphs.html" %}
+    <form action="{% url 'voter_graphs' %}" method="GET">
+      {% include "voter_analytics/filter.html" %}
+    </form>
   </div>
 
   <!-- display the bar chart with dob year dist -->

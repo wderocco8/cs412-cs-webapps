@@ -1,6 +1,5 @@
 <h3>Search Form</h3>
 <table>
-  <form action="{% url 'voter_home' %}" method="GET">
     <tr>
       <td><label for="party">Party Affiliation:</label></td>
       <td>
@@ -87,5 +86,5 @@
     <tr>
       <td><input type="submit" value="Search"></td>
     </tr>
-  </form>
+  {% comment %} </form> {% endcomment %}
 </table>
