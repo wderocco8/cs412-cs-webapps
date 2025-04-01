@@ -26,7 +26,7 @@
         <select name="min_birth_year" id="min_birth_year">
           <option value="">Select Year</option>
           {% for year in birth_years %}
-            <option value="{{ year }}">{{ year }}</option>
+            <option value="{{ year }}" {% if request.GET.min_birth_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
           {% endfor %}
         </select>
       </td>
@@ -38,7 +38,7 @@
         <select name="max_birth_year" id="max_birth_year">
           <option value="">Select Year</option>
           {% for year in birth_years %}
-            <option value="{{ year }}">{{ year }}</option>
+            <option value="{{ year }}" {% if request.GET.max_birth_year == year|stringformat:"s" %}selected{% endif %}>{{ year }}</option>
           {% endfor %}
         </select>
       </td>
@@ -49,11 +49,11 @@
       <td>
         <select name="voter_score" id="voter_score">
           <option value="">Select Score</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="1" {% if request.GET.voter_score == '1' %}selected{% endif %}>1</option>
+          <option value="2" {% if request.GET.voter_score == '2' %}selected{% endif %}>2</option>
+          <option value="3" {% if request.GET.voter_score == '3' %}selected{% endif %}>3</option>
+          <option value="4" {% if request.GET.voter_score == '4' %}selected{% endif %}>4</option>
+          <option value="5" {% if request.GET.voter_score == '5' %}selected{% endif %}>5</option>
         </select>
       </td>
     </tr>
@@ -62,23 +62,23 @@
       <td>Voted in Elections:</td>
       <td>
         <div>
-          <input type="checkbox" id="v20state" name="v20state" value="1">
+          <input type="checkbox" id="v20state" name="v20state" value="1" {% if request.GET.v20state %}checked{% endif %}>
           <label for="v20state">2020 State Election</label>
         </div>
         <div>
-          <input type="checkbox" id="v21town" name="v21town" value="1">
+          <input type="checkbox" id="v21town" name="v21town" value="1" {% if request.GET.v21town %}checked{% endif %}>
           <label for="v21town">2021 Town Election</label>
         </div>
         <div>
-          <input type="checkbox" id="v21primary" name="v21primary" value="1">
+          <input type="checkbox" id="v21primary" name="v21primary" value="1" {% if request.GET.v21primary %}checked{% endif %}>
           <label for="v21primary">Primary Election</label>
         </div>
         <div>
-          <input type="checkbox" id="v22general" name="v22general" value="1">
+          <input type="checkbox" id="v22general" name="v22general" value="1" {% if request.GET.v22general %}checked{% endif %}>
           <label for="v22general">2022 General Election</label>
         </div>
         <div>
-          <input type="checkbox" id="v23town" name="v23town" value="1">
+          <input type="checkbox" id="v23town" name="v23town" value="1" {% if request.GET.v23town %}checked{% endif %}>
           <label for="v23town">2023 Town Election</label>
         </div>
       </td>
