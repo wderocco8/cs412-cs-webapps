@@ -6,16 +6,16 @@
       <td>
         <select name="party" id="party">
           <option value="">All parties</option>
-          <option value="D">Democratic</option>
-          <option value="R">Republican</option>
-          <option value="CC">Constitution Party</option>
-          <option value="L">Libertarian Party</option>
-          <option value="T">Tea Party</option>
-          <option value="O">Other</option>
-          <option value="G">Green Party</option>
-          <option value="J">Independent Party</option>
-          <option value="Q">Reform Party</option>
-          <option value="FF">Freedom Party</option>
+          <option value="D" {% if request.GET.party == 'D' %}selected{% endif %}>Democratic</option>
+          <option value="R" {% if request.GET.party == 'R' %}selected{% endif %}>Republican</option>
+          <option value="CC" {% if request.GET.party == 'CC' %}selected{% endif %}>Constitution Party</option>
+          <option value="L" {% if request.GET.party == 'L' %}selected{% endif %}>Libertarian Party</option>
+          <option value="T" {% if request.GET.party == 'T' %}selected{% endif %}>Tea Party</option>
+          <option value="O" {% if request.GET.party == 'O' %}selected{% endif %}>Other</option>
+          <option value="G" {% if request.GET.party == 'G' %}selected{% endif %}>Green Party</option>
+          <option value="J" {% if request.GET.party == 'J' %}selected{% endif %}>Independent Party</option>
+          <option value="Q" {% if request.GET.party == 'Q' %}selected{% endif %}>Reform Party</option>
+          <option value="FF" {% if request.GET.party == 'FF' %}selected{% endif %}>Freedom Party</option>
         </select>
       </td>
     </tr>
