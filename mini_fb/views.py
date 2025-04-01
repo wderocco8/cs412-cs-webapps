@@ -4,6 +4,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from .forms import CreateProfileForm, CreateStatusMessageForm, UpdateProfileForm, UpdateStatusMessageForm
 from django.contrib.auth.forms import UserCreationForm
@@ -70,7 +71,7 @@ class CreateProfileView(ProfileContextMixin, CreateView):
             
             # Optionally, log the user in after registration
             # from django.contrib.auth import login
-            # login(self.request, user)
+            login(self.request, user)
 
             return super().form_valid(form)  # Call the superclass' form_valid method
         
