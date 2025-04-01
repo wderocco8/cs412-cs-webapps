@@ -30,7 +30,7 @@ class VoterListView(BirthYearsContextMixin, ListView):
         '''Limit results to small number (i.e. 25)'''
         qs = super().get_queryset()
 
-        # Handle form submission
+        # Handle form submission (self.request.GET is empty if no query params sent)
         if self.request.GET:
             party = self.request.GET.get('party')
             min_birth_year = self.request.GET.get('min_birth_year')
